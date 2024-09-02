@@ -1,6 +1,8 @@
 # NOT A DRAG & DROP
 ### Add the "customcmds.lua" file into "qb-smallresources/server"
 ### Add the "bring.lua" file into "qb-smallresources/client"
+### Add the "en.lua" file into "qb-smallresources/locales"
+(You can translate & rename the "en.lua" file to fit your server's language)
 
 It's so easy lmao
 
