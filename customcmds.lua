@@ -65,7 +65,11 @@ QBCore.Commands.Add('bring', Lang:t('command.bring.help'), {{name='id', help=Lan
             local TargetPlayer = QBCore.Functions.GetPlayer(targetId)
             if TargetPlayer then
                 local coords = GetEntityCoords(GetPlayerPed(source))
-                TriggerClientEvent('QBCore:Command:BringPlayer', targetId, coords.x, coords.y, coords.z)
+                
+                -- Generate a random offset near the admin's location
+                local offsetX = math.random(-1, -1)
+
+                TriggerClientEvent('QBCore:Command:BringPlayer', targetId, coords.x + offsetX, coords.y, coords.z)
                 TriggerClientEvent('QBCore:Notify', source, Lang:t('command.bring.success'), 'success')
             else
                 TriggerClientEvent('QBCore:Notify', source, Lang:t('command.plyrnotfound'), 'error')
@@ -76,6 +80,14 @@ QBCore.Commands.Add('bring', Lang:t('command.bring.help'), {{name='id', help=Lan
     else
         TriggerClientEvent('QBCore:Notify', source, Lang:t('command.invalid_id'), 'error')
     end
+end, 'admin')
+
+QBCore.Commands.Add('reviveall', Lang:t('command.reviveall.help'), {}, false, function(source)
+    -- Trigger the revive event for all players on the server
+    TriggerClientEvent('hospital:client:Revive', -1)
+
+    -- Notify the admin that the command has been executed
+    TriggerClientEvent('QBCore:Notify', source, Lang:t('command.reviveall.success'), 'success')
 end, 'admin')
 
 QBCore.Commands.Add('defaultinv', Lang:t('command.defaultinv.help'), {}, false, function(source, _)
