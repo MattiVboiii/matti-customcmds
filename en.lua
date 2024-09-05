@@ -24,6 +24,10 @@ command = {
             help = 'Brings a player to you (Admin only)',
             success = 'Player has been brought to your location.'
         },
+        reviveall = {
+            help = 'Revive all players in the server (Admin Only)',
+            success = 'All players are revived.',
+        },
         defaultinv = {
             help = 'Gives the player default DEV items (Admin only)',
             success = 'You have been given your default DEV items.'
