@@ -112,3 +112,20 @@ QBCore.Commands.Add('defaultinv', Lang:t('command.defaultinv.help'), {}, false, 
         TriggerClientEvent('QBCore:Notify', source, Lang:t('command.plyrnotfound'), 'error')
     end
 end, 'admin')
+
+QBCore.Commands.Add('cid', Lang:t('command.cid.help'), {{name='id', help=Lang:t('command.arg_help')}}, false, function(source, args)
+    local Player = QBCore.Functions.GetPlayer(source)
+    if Player then
+        local targetId = tonumber(args[1]) or source 
+        local TargetPlayer = QBCore.Functions.GetPlayer(targetId)
+        
+        if TargetPlayer then
+            local citizenid = TargetPlayer.PlayerData.citizenid
+            TriggerClientEvent('QBCore:Notify', source, Lang:t('command.cid.success', { citizenid = citizenid }), 'success')
+        else
+            TriggerClientEvent('QBCore:Notify', source, Lang:t('command.plyrnotfound'), 'error')
+        end
+    else
+        TriggerClientEvent('QBCore:Notify', source, Lang:t('command.plyrnotfound'), 'error')
+    end
+end, 'admin')
