@@ -13,6 +13,7 @@ It's so easy lmao
 - /tptraining : Teleports you to the military base (Admin Only) (I have a script for that personally)
 - /bring [ID] : Teleports the given ID to you (Admin Only)
 - /defaultinv : Gives you all the items that are listed (Admin Only)
-- /reviveall : Revives every player in the server
+- /reviveall : Revives every player in the server (Admin Only)
+- /cid [ID] : Shows the CitizenID of a specified player (Admin Only)
 
 More to come, trust me... :)
